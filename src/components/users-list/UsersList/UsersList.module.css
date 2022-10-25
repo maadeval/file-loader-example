@@ -1,0 +1,47 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 140px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 10;
+}
+
+.wrapper::before {
+  top: 0;
+  height: 140px;
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+.wrapper::after {
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 800;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  letter-spacing: -0.06em;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #00000020;
+  backdrop-filter: blur(4px);
+  z-index: 20;
+}
