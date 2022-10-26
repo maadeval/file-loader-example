@@ -10,7 +10,7 @@ const UsersListRows = ({ users, loading, error }) => {
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error al cargar los usuarios</p>;
   if (!users.length) return <p>No hay usuarios</p>;
-  console.log(users);
+
   return (
     <section className={style.wrapper}>
       {users.map((user) => (

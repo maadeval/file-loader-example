@@ -6,7 +6,6 @@ export const useUsers = () => {
     data: [],
     loading: true,
     error: false,
-    update: false,
   });
 
   const setData = (data) =>
@@ -14,7 +13,6 @@ export const useUsers = () => {
       data,
       loading: false,
       error: !data,
-      update: false,
     });
 
   const setError = () =>
@@ -22,7 +20,6 @@ export const useUsers = () => {
       data: [],
       loading: false,
       error: true,
-      update: false,
     });
 
   const updateUsersByUser = (user) => {
@@ -37,7 +34,7 @@ export const useUsers = () => {
     loadUsers(setData, setError, { signal: controller.signal });
 
     return () => controller.abort();
-  }, [users.update]);
+  }, []);
 
   return {
     users: users.data,
@@ -48,9 +45,10 @@ export const useUsers = () => {
 };
 
 const loadUsers = async (setData, setError, { signal }) => {
-  const { data, aborted } = await getUsers({ signal });
+  const { data, aborted, error } = await getUsers({ signal });
 
   if (aborted) return;
-  if (data) setData(data);
-  else setError();
+
+  if (error) setError();
+  else setData(data);
 };
